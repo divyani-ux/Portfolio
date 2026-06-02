@@ -67,4 +67,19 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // Auto-close mobile navigation menu when a link is clicked
+  const navLinks = document.querySelectorAll(".custom-navbar .nav-link");
+  const menuCollapse = document.getElementById("navbarNav");
+  if (menuCollapse && typeof bootstrap !== "undefined") {
+    const bsCollapse = new bootstrap.Collapse(menuCollapse, { toggle: false });
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (menuCollapse.classList.contains("show")) {
+          bsCollapse.hide();
+        }
+      });
+    });
+  }
 });
+
